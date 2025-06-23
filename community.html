@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade - PlanetaReal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/community.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-leaf"></i>
+                        <span>PlanetaReal</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="calculator.html">Calculadora</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="challenges.html">Desafios</a></li>
+                    <li><a href="community.html" class="active">Comunidade</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Community Section -->
+    <section class="community-section">
+        <div class="container">
+            <!-- Community Header -->
+            <div class="community-header">
+                <div class="header-content">
+                    <h1>Comunidade Verde</h1>
+                    <p>Conecte-se com pessoas que compartilham sua paixão pela sustentabilidade</p>
+                    <div class="community-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <span>15.432 membros</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comments"></i>
+                            <span>2.847 posts</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>45.2 ton CO₂ economizadas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary" onclick="createPost()">
+                        <i class="fas fa-plus"></i>
+                        Criar Post
+                    </button>
+                    <button class="btn btn-secondary" onclick="joinGroup()">
+                        <i class="fas fa-users"></i>
+                        Juntar-se a Grupo
+                    </button>
+                </div>
+            </div>
+
+            <!-- Community Layout -->
+            <div class="community-layout">
+                <!-- Sidebar -->
+                <aside class="community-sidebar">
+                    <!-- User Profile Card -->
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <img src="https://via.placeholder.com/80" alt="Seu perfil" class="profile-avatar">
+                            <div class="profile-info">
+                                <h3>João Silva</h3>
+                                <span class="user-level">Nível 5 - Eco Guerreiro</span>
+                            </div>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <span class="stat-number">1.250</span>
+                                <span class="stat-label">Pontos</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">8</span>
+                                <span class="stat-label">Badges</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">45</span>
+                                <span class="stat-label">Dias</span>
+                            </div>
+                        </div>
+                        <div class="profile-impact">
+                            <h4>Seu Impacto</h4>
+                            <div class="impact-item">
+                                <i class="fas fa-cloud"></i>
+                                <span>2.1 ton CO₂/ano</span>
+                            </div>
+                            <div class="impact-item">
+                                <i class="fas fa-tint"></i>
+                                <span>45.2 m³ água/ano</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h3>Ações Rápidas</h3>
+                        <div class="action-buttons">
+                            <button class="action-btn" onclick="shareAchievement()">
+                                <i class="fas fa-trophy"></i>
+                                Compartilhar Conquista
+                            </button>
+                            <button class="action-btn" onclick="findFriends()">
+                                <i class="fas fa-user-plus"></i>
+                                Encontrar Amigos
+                            </button>
+                            <button class="action-btn" onclick="createEvent()">
+                                <i class="fas fa-calendar-plus"></i>
+                                Criar Evento
+                            </button>
+                            <button class="action-btn" onclick="suggestIdea()">
+                                <i class="fas fa-lightbulb"></i>
+                                Sugerir Ideia
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Trending Topics -->
+                    <div class="trending-topics">
+                        <h3>Tópicos em Alta</h3>
+                        <div class="topic-list">
+                            <div class="topic-item">
+                                <span class="topic-tag">#Veganismo</span>
+                                <span class="topic-count">1.2k posts</span>
+                            </div>
+                            <div class="topic-item">
+                                <span class="topic-tag">#Bicicleta</span>
+                                <span class="topic-count">856 posts</span>
+                            </div>
+                            <div class="topic-item">
+                                <span class="topic-tag">#Reciclagem</span>
+                                <span class="topic-count">743 posts</span>
+                            </div>
+                            <div class="topic-item">
+                                <span class="topic-tag">#EnergiaSolar</span>
+                                <span class="topic-count">432 posts</span>
+                            </div>
+                            <div class="topic-item">
+                                <span class="topic-tag">#Compostagem</span>
+                                <span class="topic-count">298 posts</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="community-main">
+                    <!-- Post Filters -->
+                    <div class="post-filters">
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter="all">
+                                <i class="fas fa-globe"></i>
+                                Todos
+                            </button>
+                            <button class="filter-tab" data-filter="achievements">
+                                <i class="fas fa-trophy"></i>
+                                Conquistas
+                            </button>
+                            <button class="filter-tab" data-filter="tips">
+                                <i class="fas fa-lightbulb"></i>
+                                Dicas
+                            </button>
+                            <button class="filter-tab" data-filter="questions">
+                                <i class="fas fa-question-circle"></i>
+                                Perguntas
+                            </button>
+                            <button class="filter-tab" data-filter="events">
+                                <i class="fas fa-calendar"></i>
+                                Eventos
+                            </button>
+                        </div>
+                        <div class="sort-options">
+                            <select class="sort-select">
+                                <option value="recent">Mais Recentes</option>
+                                <option value="popular">Mais Populares</option>
+                                <option value="trending">Em Alta</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Posts Feed -->
+                    <div class="posts-feed">
+                        <!-- Post 1: Achievement -->
+                        <article class="post-card achievement-post" data-category="achievements">
+                            <div class="post-header">
+                                <div class="post-author">
+                                    <img src="https://via.placeholder.com/50" alt="Maria Costa" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4>Maria Costa</h4>
+                                        <span class="post-meta">Há 2 horas • <i class="fas fa-trophy"></i> Conquista</span>
+                                    </div>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="btn-icon" title="Mais opções">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="post-content">
+                                <div class="achievement-celebration">
+                                    <div class="achievement-badge">
+                                        <i class="fas fa-seedling"></i>
+                                    </div>
+                                    <div class="achievement-text">
+                                        <h3>🎉 Conquistei o badge "Vegano por 30 dias"!</h3>
+                                        <p>Finalmente completei 30 dias seguidos de dieta vegana! Foi um desafio incrível e aprendi muito sobre alimentação sustentável. Minha pegada de carbono diminuiu 0.4 ton/ano! 🌱</p>
+                                    </div>
+                                </div>
+                                <div class="achievement-stats">
+                                    <div class="stat">
+                                        <i class="fas fa-cloud"></i>
+                                        <span>-0.4 ton CO₂</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-tint"></i>
+                                        <span>-2.5 m³ água</span>
+                                    </div>
+                                    <div class="stat">
+                                        <i class="fas fa-leaf"></i>
+                                        <span>+3 árvores</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="post-media">
+                                <img src="https://via.placeholder.com/600x300" alt="Comida vegana" class="post-image">
+                            </div>
+                            
+                            <div class="post-actions-bar">
+                                <button class="action-btn" onclick="likePost(1)">
+                                    <i class="fas fa-heart"></i>
+                                    <span>127</span>
+                                </button>
+                                <button class="action-btn" onclick="commentPost(1)">
+                                    <i class="fas fa-comment"></i>
+                                    <span>23</span>
+                                </button>
+                                <button class="action-btn" onclick="sharePost(1)">
+                                    <i class="fas fa-share"></i>
+                                    <span>Compartilhar</span>
+                                </button>
+                                <button class="action-btn" onclick="savePost(1)">
+                                    <i class="fas fa-bookmark"></i>
+                                    <span>Salvar</span>
+                                </button>
+                            </div>
+                            
+                            <div class="post-comments">
+                                <div class="comment">
+                                    <img src="https://via.placeholder.com/30" alt="Carlos Santos" class="comment-avatar">
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Carlos Santos</span>
+                                            <span class="comment-time">Há 1 hora</span>
+                                        </div>
+                                        <p>Parabéns! 🎉 Qual foi a parte mais difícil?</p>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <img src="https://via.placeholder.com/30" alt="Ana Silva" class="comment-avatar">
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Ana Silva</span>
+                                            <span class="comment-time">Há 30 min</span>
+                                        </div>
+                                        <p>Incrível! Você tem alguma receita favorita para compartilhar? 😊</p>
+                                    </div>
+                                </div>
+                                <div class="add-comment">
+                                    <img src="https://via.placeholder.com/30" alt="Seu avatar" class="comment-avatar">
+                                    <input type="text" placeholder="Adicionar comentário..." class="comment-input">
+                                    <button class="btn-send">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Post 2: Tip -->
+                        <article class="post-card tip-post" data-category="tips">
+                            <div class="post-header">
+                                <div class="post-author">
+                                    <img src="https://via.placeholder.com/50" alt="Pedro Lima" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4>Pedro Lima</h4>
+                                        <span class="post-meta">Há 4 horas • <i class="fas fa-lightbulb"></i> Dica</span>
+                                    </div>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="btn-icon" title="Mais opções">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="post-content">
+                                <h3>💡 Dica Sustentável: Como reduzir o desperdício de água</h3>
+                                <p>Descobri uma técnica simples que me ajudou a economizar 30% de água em casa:</p>
+                                <ol>
+                                    <li>Instale aeradores nas torneiras</li>
+                                    <li>Use baldes para coletar água da chuva</li>
+                                    <li>Repare vazamentos imediatamente</li>
+                                    <li>Use a máquina de lavar apenas quando estiver cheia</li>
+                                </ol>
+                                <p>Resultado: Economizei 15m³ de água por mês! 💧</p>
+                            </div>
+                            
+                            <div class="post-actions-bar">
+                                <button class="action-btn" onclick="likePost(2)">
+                                    <i class="fas fa-heart"></i>
+                                    <span>89</span>
+                                </button>
+                                <button class="action-btn" onclick="commentPost(2)">
+                                    <i class="fas fa-comment"></i>
+                                    <span>15</span>
+                                </button>
+                                <button class="action-btn" onclick="sharePost(2)">
+                                    <i class="fas fa-share"></i>
+                                    <span>Compartilhar</span>
+                                </button>
+                                <button class="action-btn" onclick="savePost(2)">
+                                    <i class="fas fa-bookmark"></i>
+                                    <span>Salvar</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Post 3: Question -->
+                        <article class="post-card question-post" data-category="questions">
+                            <div class="post-header">
+                                <div class="post-author">
+                                    <img src="https://via.placeholder.com/50" alt="Lucas Oliveira" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4>Lucas Oliveira</h4>
+                                        <span class="post-meta">Há 6 horas • <i class="fas fa-question-circle"></i> Pergunta</span>
+                                    </div>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="btn-icon" title="Mais opções">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="post-content">
+                                <h3>❓ Alguém já instalou painéis solares em casa?</h3>
+                                <p>Estou pensando em instalar painéis solares no meu telhado, mas tenho algumas dúvidas:</p>
+                                <ul>
+                                    <li>Qual o custo médio para uma casa de 100m²?</li>
+                                    <li>Quanto tempo leva para o investimento se pagar?</li>
+                                    <li>Quais são os melhores fornecedores?</li>
+                                    <li>Preciso de autorização da prefeitura?</li>
+                                </ul>
+                                <p>Se alguém já passou por isso, adoraria ouvir sua experiência! 🙏</p>
+                            </div>
+                            
+                            <div class="post-actions-bar">
+                                <button class="action-btn" onclick="likePost(3)">
+                                    <i class="fas fa-heart"></i>
+                                    <span>45</span>
+                                </button>
+                                <button class="action-btn" onclick="commentPost(3)">
+                                    <i class="fas fa-comment"></i>
+                                    <span>32</span>
+                                </button>
+                                <button class="action-btn" onclick="sharePost(3)">
+                                    <i class="fas fa-share"></i>
+                                    <span>Compartilhar</span>
+                                </button>
+                                <button class="action-btn" onclick="savePost(3)">
+                                    <i class="fas fa-bookmark"></i>
+                                    <span>Salvar</span>
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- Post 4: Event -->
+                        <article class="post-card event-post" data-category="events">
+                            <div class="post-header">
+                                <div class="post-author">
+                                    <img src="https://via.placeholder.com/50" alt="EcoVida SP" class="author-avatar">
+                                    <div class="author-info">
+                                        <h4>EcoVida SP</h4>
+                                        <span class="post-meta">Há 1 dia • <i class="fas fa-calendar"></i> Evento</span>
+                                    </div>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="btn-icon" title="Mais opções">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="post-content">
+                                <div class="event-card">
+                                    <div class="event-header">
+                                        <h3>🌱 Feira de Sustentabilidade 2024</h3>
+                                        <div class="event-date">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <span>15 de Março, 2024 • 10:00 - 18:00</span>
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <span>Parque Ibirapuera, São Paulo</span>
+                                        </div>
+                                    </div>
+                                    <p>Venha participar da maior feira de sustentabilidade de São Paulo! Teremos:</p>
+                                    <ul>
+                                        <li>Expositores de produtos sustentáveis</li>
+                                        <li>Palestras sobre meio ambiente</li>
+                                        <li>Workshops de reciclagem</li>
+                                        <li>Feira de trocas</li>
+                                        <li>Apresentações musicais</li>
+                                    </ul>
+                                    <div class="event-stats">
+                                        <div class="event-stat">
+                                            <i class="fas fa-users"></i>
+                                            <span>1.2k participantes</span>
+                                        </div>
+                                        <div class="event-stat">
+                                            <i class="fas fa-clock"></i>
+                                            <span>8 horas</span>
+                                        </div>
+                                        <div class="event-stat">
+                                            <i class="fas fa-star"></i>
+                                            <span>Gratuito</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="post-actions-bar">
+                                <button class="action-btn" onclick="likePost(4)">
+                                    <i class="fas fa-heart"></i>
+                                    <span>234</span>
+                                </button>
+                                <button class="action-btn" onclick="commentPost(4)">
+                                    <i class="fas fa-comment"></i>
+                                    <span>67</span>
+                                </button>
+                                <button class="action-btn" onclick="sharePost(4)">
+                                    <i class="fas fa-share"></i>
+                                    <span>Compartilhar</span>
+                                </button>
+                                <button class="btn btn-primary" onclick="joinEvent(4)">
+                                    <i class="fas fa-calendar-plus"></i>
+                                    Participar
+                                </button>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="load-more">
+                        <button class="btn btn-secondary" onclick="loadMorePosts()">
+                            <i class="fas fa-sync-alt"></i>
+                            Carregar Mais Posts
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- Create Post Modal -->
+    <div id="create-post-modal" class="modal">
+        <div class="modal-content create-post">
+            <span class="close">&times;</span>
+            <h2>Criar Novo Post</h2>
+            <form class="create-post-form">
+                <div class="form-group">
+                    <label>Tipo de Post</label>
+                    <select class="post-type-select">
+                        <option value="general">Post Geral</option>
+                        <option value="achievement">Conquista</option>
+                        <option value="tip">Dica</option>
+                        <option value="question">Pergunta</option>
+                        <option value="event">Evento</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" placeholder="Digite o título do seu post..." class="post-title-input">
+                </div>
+                <div class="form-group">
+                    <label>Conteúdo</label>
+                    <textarea placeholder="Compartilhe sua experiência, dica ou pergunta..." class="post-content-input" rows="6"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Adicionar Imagem (opcional)</label>
+                    <input type="file" accept="image/*" class="post-image-input">
+                </div>
+                <div class="form-group">
+                    <label>Tags (opcional)</label>
+                    <input type="text" placeholder="Ex: #sustentabilidade #reciclagem" class="post-tags-input">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Publicar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/community.js"></script>
+</body>
+</html> 

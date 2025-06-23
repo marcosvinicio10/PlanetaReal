@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PlanetaReal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-leaf"></i>
+                        <span>PlanetaReal</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="calculator.html">Calculadora</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="challenges.html">Desafios</a></li>
+                    <li><a href="community.html">Comunidade</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="container">
+            <!-- User Header -->
+            <div class="user-header">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <img src="https://via.placeholder.com/80" alt="Avatar do usuário">
+                        <div class="user-level">
+                            <span>Nível 5</span>
+                        </div>
+                    </div>
+                    <div class="user-details">
+                        <h1>Olá, João Silva! 👋</h1>
+                        <p>Membro desde Janeiro 2024</p>
+                        <div class="user-stats">
+                            <div class="stat">
+                                <i class="fas fa-trophy"></i>
+                                <span>1.250 pontos</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-medal"></i>
+                                <span>8 badges</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>45 dias ativo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-score">
+                    <div class="score-card">
+                        <h3>Sua Pegada Atual</h3>
+                        <div class="score-value">2.1</div>
+                        <div class="score-unit">ton CO₂/ano</div>
+                        <div class="score-change positive">
+                            <i class="fas fa-arrow-down"></i>
+                            -15% este mês
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Current Impact -->
+                <div class="dashboard-card impact-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-chart-pie"></i> Impacto Atual</h2>
+                        <div class="card-actions">
+                            <button class="btn-icon" title="Atualizar">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="impact-chart">
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                    <div class="impact-summary">
+                        <div class="impact-item">
+                            <div class="impact-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="impact-details">
+                                <span class="impact-value">2.1</span>
+                                <span class="impact-label">CO₂ (ton/ano)</span>
+                            </div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="impact-details">
+                                <span class="impact-value">45.2</span>
+                                <span class="impact-label">Água (m³/ano)</span>
+                            </div>
+                        </div>
+                        <div class="impact-item">
+                            <div class="impact-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="impact-details">
+                                <span class="impact-value">3.8</span>
+                                <span class="impact-label">Energia (MWh/ano)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Chart -->
+                <div class="dashboard-card progress-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-chart-line"></i> Progresso Mensal</h2>
+                        <select class="period-selector">
+                            <option value="month">Último mês</option>
+                            <option value="quarter">Último trimestre</option>
+                            <option value="year">Último ano</option>
+                        </select>
+                    </div>
+                    <div class="progress-chart">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Active Challenges -->
+                <div class="dashboard-card challenges-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-trophy"></i> Desafios Ativos</h2>
+                        <a href="challenges.html" class="btn-link">Ver todos</a>
+                    </div>
+                    <div class="challenges-list">
+                        <div class="challenge-item">
+                            <div class="challenge-info">
+                                <h4>Semana Sem Carro</h4>
+                                <p>Use apenas transporte público ou bicicleta</p>
+                                <div class="challenge-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span>3/4 dias</span>
+                                </div>
+                            </div>
+                            <div class="challenge-reward">
+                                <i class="fas fa-star"></i>
+                                <span>+50 pts</span>
+                            </div>
+                        </div>
+                        <div class="challenge-item">
+                            <div class="challenge-info">
+                                <h4>Reduzir Desperdício</h4>
+                                <p>Diminua o lixo em 30% esta semana</p>
+                                <div class="challenge-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                    <span>60%</span>
+                                </div>
+                            </div>
+                            <div class="challenge-reward">
+                                <i class="fas fa-star"></i>
+                                <span>+75 pts</span>
+                            </div>
+                        </div>
+                        <div class="challenge-item">
+                            <div class="challenge-info">
+                                <h4>Alimentação Sustentável</h4>
+                                <p>5 dias sem carne esta semana</p>
+                                <div class="challenge-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 100%"></div>
+                                    </div>
+                                    <span>5/5 dias</span>
+                                </div>
+                            </div>
+                            <div class="challenge-reward completed">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Concluído!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recommendations -->
+                <div class="dashboard-card recommendations-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-lightbulb"></i> Recomendações</h2>
+                        <button class="btn-icon" title="Atualizar">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    <div class="recommendations-list">
+                        <div class="recommendation-item">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="recommendation-content">
+                                <h4>Transporte Sustentável</h4>
+                                <p>Considere usar bicicleta 2x por semana para reduzir 0.3 ton CO₂/ano</p>
+                                <div class="recommendation-impact">
+                                    <span class="impact-savings">-0.3 ton CO₂</span>
+                                    <span class="impact-time">por ano</span>
+                                </div>
+                            </div>
+                            <button class="btn-action">Aplicar</button>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="recommendation-content">
+                                <h4>Eficiência Energética</h4>
+                                <p>Troque 5 lâmpadas por LED para economizar 0.2 ton CO₂/ano</p>
+                                <div class="recommendation-impact">
+                                    <span class="impact-savings">-0.2 ton CO₂</span>
+                                    <span class="impact-time">por ano</span>
+                                </div>
+                            </div>
+                            <button class="btn-action">Aplicar</button>
+                        </div>
+                        <div class="recommendation-item">
+                            <div class="recommendation-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="recommendation-content">
+                                <h4>Alimentação Consciente</h4>
+                                <p>Reduza o consumo de carne em 2 dias por semana</p>
+                                <div class="recommendation-impact">
+                                    <span class="impact-savings">-0.4 ton CO₂</span>
+                                    <span class="impact-time">por ano</span>
+                                </div>
+                            </div>
+                            <button class="btn-action">Aplicar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="dashboard-card achievements-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-medal"></i> Conquistas</h2>
+                        <span class="achievement-count">8/20</span>
+                    </div>
+                    <div class="achievements-grid">
+                        <div class="achievement-item earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Primeiro Passo</h4>
+                                <p>Complete seu primeiro cálculo</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-bicycle"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Ciclista Verde</h4>
+                                <p>Use bicicleta por 7 dias</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Reciclador</h4>
+                                <p>Recicle por 30 dias consecutivos</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-solar-panel"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Energia Limpa</h4>
+                                <p>Reduza consumo de energia em 50%</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Vegano por 30 dias</h4>
+                                <p>Adote dieta vegana por um mês</p>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="achievement-info">
+                                <h4>Influenciador Verde</h4>
+                                <p>Convide 5 amigos para a plataforma</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community Ranking -->
+                <div class="dashboard-card ranking-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-trophy"></i> Ranking da Comunidade</h2>
+                        <select class="ranking-selector">
+                            <option value="city">Sua cidade</option>
+                            <option value="state">Seu estado</option>
+                            <option value="country">Brasil</option>
+                        </select>
+                    </div>
+                    <div class="ranking-list">
+                        <div class="ranking-item current-user">
+                            <div class="ranking-position">#3</div>
+                            <div class="ranking-user">
+                                <img src="https://via.placeholder.com/40" alt="Você">
+                                <div class="ranking-info">
+                                    <h4>Você</h4>
+                                    <span>1.250 pontos</span>
+                                </div>
+                            </div>
+                            <div class="ranking-score">2.1 ton</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-position">#1</div>
+                            <div class="ranking-user">
+                                <img src="https://via.placeholder.com/40" alt="Maria Costa">
+                                <div class="ranking-info">
+                                    <h4>Maria Costa</h4>
+                                    <span>1.890 pontos</span>
+                                </div>
+                            </div>
+                            <div class="ranking-score">1.2 ton</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-position">#2</div>
+                            <div class="ranking-user">
+                                <img src="https://via.placeholder.com/40" alt="Carlos Santos">
+                                <div class="ranking-info">
+                                    <h4>Carlos Santos</h4>
+                                    <span>1.450 pontos</span>
+                                </div>
+                            </div>
+                            <div class="ranking-score">1.8 ton</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-position">#4</div>
+                            <div class="ranking-user">
+                                <img src="https://via.placeholder.com/40" alt="Ana Silva">
+                                <div class="ranking-info">
+                                    <h4>Ana Silva</h4>
+                                    <span>980 pontos</span>
+                                </div>
+                            </div>
+                            <div class="ranking-score">2.5 ton</div>
+                        </div>
+                        <div class="ranking-item">
+                            <div class="ranking-position">#5</div>
+                            <div class="ranking-user">
+                                <img src="https://via.placeholder.com/40" alt="Pedro Lima">
+                                <div class="ranking-info">
+                                    <h4>Pedro Lima</h4>
+                                    <span>850 pontos</span>
+                                </div>
+                            </div>
+                            <div class="ranking-score">2.8 ton</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

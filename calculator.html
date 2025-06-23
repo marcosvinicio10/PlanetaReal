@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Pegada Ecológica - PlanetaReal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-leaf"></i>
+                        <span>PlanetaReal</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="calculator.html" class="active">Calculadora</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="challenges.html">Desafios</a></li>
+                    <li><a href="community.html">Comunidade</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-header">
+                <h1>Calculadora de Pegada Ecológica</h1>
+                <p>Descubra como suas escolhas diárias impactam o planeta</p>
+            </div>
+
+            <div class="calculator-container">
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span>Transporte</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span>Moradia</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span>Alimentação</span>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <span>Consumo</span>
+                    </div>
+                    <div class="progress-step" data-step="5">
+                        <div class="step-number">5</div>
+                        <span>Resíduos</span>
+                    </div>
+                </div>
+
+                <div class="calculator-form">
+                    <!-- Step 1: Transporte -->
+                    <div class="step-content active" data-step="1">
+                        <div class="step-header">
+                            <h2><i class="fas fa-car"></i> Transporte</h2>
+                            <p>Como você se locomove no dia a dia?</p>
+                        </div>
+                        
+                        <div class="question-group">
+                            <label>Quantos quilômetros você percorre por semana?</label>
+                            <div class="slider-container">
+                                <input type="range" id="distance" min="0" max="500" value="50" class="slider">
+                                <div class="slider-value">
+                                    <span id="distance-value">50</span> km/semana
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Qual seu principal meio de transporte?</label>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="car">
+                                    <i class="fas fa-car"></i>
+                                    <span>Carro</span>
+                                </div>
+                                <div class="option-card" data-value="bus">
+                                    <i class="fas fa-bus"></i>
+                                    <span>Ônibus</span>
+                                </div>
+                                <div class="option-card" data-value="bike">
+                                    <i class="fas fa-bicycle"></i>
+                                    <span>Bicicleta</span>
+                                </div>
+                                <div class="option-card" data-value="walk">
+                                    <i class="fas fa-walking"></i>
+                                    <span>A pé</span>
+                                </div>
+                                <div class="option-card" data-value="subway">
+                                    <i class="fas fa-subway"></i>
+                                    <span>Metrô</span>
+                                </div>
+                                <div class="option-card" data-value="motorcycle">
+                                    <i class="fas fa-motorcycle"></i>
+                                    <span>Moto</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Quantas pessoas viajam com você no carro?</label>
+                            <div class="number-input">
+                                <button type="button" class="btn-number" onclick="decrement('passengers')">-</button>
+                                <input type="number" id="passengers" value="1" min="1" max="10">
+                                <button type="button" class="btn-number" onclick="increment('passengers')">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Moradia -->
+                    <div class="step-content" data-step="2">
+                        <div class="step-header">
+                            <h2><i class="fas fa-home"></i> Moradia</h2>
+                            <p>Como é sua casa e consumo de energia?</p>
+                        </div>
+                        
+                        <div class="question-group">
+                            <label>Qual o tamanho da sua casa?</label>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="small">
+                                    <i class="fas fa-home"></i>
+                                    <span>Até 50m²</span>
+                                </div>
+                                <div class="option-card" data-value="medium">
+                                    <i class="fas fa-home"></i>
+                                    <span>51-100m²</span>
+                                </div>
+                                <div class="option-card" data-value="large">
+                                    <i class="fas fa-home"></i>
+                                    <span>101-200m²</span>
+                                </div>
+                                <div class="option-card" data-value="xlarge">
+                                    <i class="fas fa-home"></i>
+                                    <span>Mais de 200m²</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Quantas pessoas moram com você?</label>
+                            <div class="number-input">
+                                <button type="button" class="btn-number" onclick="decrement('household')">-</button>
+                                <input type="number" id="household" value="1" min="1" max="10">
+                                <button type="button" class="btn-number" onclick="increment('household')">+</button>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Qual sua fonte de energia?</label>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="renewable">
+                                    <i class="fas fa-solar-panel"></i>
+                                    <span>Renovável</span>
+                                </div>
+                                <div class="option-card" data-value="mixed">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Mista</span>
+                                </div>
+                                <div class="option-card" data-value="fossil">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Fóssil</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Consumo mensal de energia (kWh)</label>
+                            <div class="slider-container">
+                                <input type="range" id="energy" min="0" max="1000" value="300" class="slider">
+                                <div class="slider-value">
+                                    <span id="energy-value">300</span> kWh/mês
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Alimentação -->
+                    <div class="step-content" data-step="3">
+                        <div class="step-header">
+                            <h2><i class="fas fa-utensils"></i> Alimentação</h2>
+                            <p>Como são seus hábitos alimentares?</p>
+                        </div>
+                        
+                        <div class="question-group">
+                            <label>Qual sua dieta principal?</label>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="vegan">
+                                    <i class="fas fa-seedling"></i>
+                                    <span>Vegana</span>
+                                </div>
+                                <div class="option-card" data-value="vegetarian">
+                                    <i class="fas fa-carrot"></i>
+                                    <span>Vegetariana</span>
+                                </div>
+                                <div class="option-card" data-value="flexitarian">
+                                    <i class="fas fa-balance-scale"></i>
+                                    <span>Flexitariana</span>
+                                </div>
+                                <div class="option-card" data-value="omnivore">
+                                    <i class="fas fa-drumstick-bite"></i>
+                                    <span>Onívora</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Quantas refeições com carne você faz por semana?</label>
+                            <div class="slider-container">
+                                <input type="range" id="meat-meals" min="0" max="21" value="7" class="slider">
+                                <div class="slider-value">
+                                    <span id="meat-meals-value">7</span> refeições/semana
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Você consome produtos orgânicos?</label>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="always">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>Sempre</span>
+                                </div>
+                                <div class="option-card" data-value="sometimes">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>Às vezes</span>
+                                </div>
+                                <div class="option-card" data-value="rarely">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>Raramente</span>
+                                </div>
+                                <div class="option-card" data-value="never">
+                                    <i class="fas fa-leaf"></i>
+                                    <span>Nunca</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Consumo -->
+                    <div class="step-content" data-step="4">
+                        <div class="step-header">
+                            <h2><i class="fas fa-shopping-bag"></i> Consumo</h2>
+                            <p>Como você consome produtos e serviços?</p>
+                        </div>
+                        
+                        <div class="question-group">
+                            <label>Quantas roupas você compra por mês?</label>
+                            <div class="slider-container">
+                                <input type="range" id="clothes" min="0" max="20" value="3" class="slider">
+                                <div class="slider-value">
+                                    <span id="clothes-value">3</span> peças/mês
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Você compra produtos de segunda mão?</label>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="always">
+                                    <i class="fas fa-recycle"></i>
+                                    <span>Sempre</span>
+                                </div>
+                                <div class="option-card" data-value="sometimes">
+                                    <i class="fas fa-recycle"></i>
+                                    <span>Às vezes</span>
+                                </div>
+                                <div class="option-card" data-value="rarely">
+                                    <i class="fas fa-recycle"></i>
+                                    <span>Raramente</span>
+                                </div>
+                                <div class="option-card" data-value="never">
+                                    <i class="fas fa-recycle"></i>
+                                    <span>Nunca</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Quantos dispositivos eletrônicos você compra por ano?</label>
+                            <div class="slider-container">
+                                <input type="range" id="electronics" min="0" max="10" value="1" class="slider">
+                                <div class="slider-value">
+                                    <span id="electronics-value">1</span> dispositivo/ano
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Resíduos -->
+                    <div class="step-content" data-step="5">
+                        <div class="step-header">
+                            <h2><i class="fas fa-recycle"></i> Resíduos</h2>
+                            <p>Como você gerencia seus resíduos?</p>
+                        </div>
+                        
+                        <div class="question-group">
+                            <label>Você recicla?</label>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="always">
+                                    <i class="fas fa-recycle"></i>
+                                    <span>Sempre</span>
+                                </div>
+                                <div class="option-card" data-value="sometimes">
+                                    <i class="fas fa-recycle"></i>
+                                    <span>Às vezes</span>
+                                </div>
+                                <div class="option-card" data-value="rarely">
+                                    <i class="fas fa-recycle"></i>
+                                    <span>Raramente</span>
+                                </div>
+                                <div class="option-card" data-value="never">
+                                    <i class="fas fa-recycle"></i>
+                                    <span>Nunca</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Quantos sacos de lixo você gera por semana?</label>
+                            <div class="slider-container">
+                                <input type="range" id="waste" min="0" max="10" value="2" class="slider">
+                                <div class="slider-value">
+                                    <span id="waste-value">2</span> sacos/semana
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <label>Você faz compostagem?</label>
+                            <div class="options-grid">
+                                <div class="option-card" data-value="yes">
+                                    <i class="fas fa-seedling"></i>
+                                    <span>Sim</span>
+                                </div>
+                                <div class="option-card" data-value="no">
+                                    <i class="fas fa-times"></i>
+                                    <span>Não</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="step-navigation">
+                        <button type="button" class="btn btn-secondary" id="prev-btn" style="display: none;">
+                            <i class="fas fa-arrow-left"></i>
+                            Anterior
+                        </button>
+                        <button type="button" class="btn btn-primary" id="next-btn">
+                            Próximo
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button type="button" class="btn btn-success" id="calculate-btn" style="display: none;">
+                            <i class="fas fa-calculator"></i>
+                            Calcular Resultado
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Modal -->
+    <div id="results-modal" class="modal">
+        <div class="modal-content results-content">
+            <span class="close">&times;</span>
+            <div class="results-header">
+                <h2>Seu Resultado</h2>
+                <div class="footprint-score">
+                    <div class="score-circle">
+                        <span id="footprint-number">0</span>
+                        <small>ton CO₂/ano</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-details">
+                <div class="category-breakdown">
+                    <h3>Breakdown por Categoria</h3>
+                    <div class="breakdown-chart">
+                        <div class="chart-bar">
+                            <span>Transporte</span>
+                            <div class="bar">
+                                <div class="bar-fill" id="transport-bar" style="width: 0%"></div>
+                            </div>
+                            <span id="transport-value">0%</span>
+                        </div>
+                        <div class="chart-bar">
+                            <span>Moradia</span>
+                            <div class="bar">
+                                <div class="bar-fill" id="housing-bar" style="width: 0%"></div>
+                            </div>
+                            <span id="housing-value">0%</span>
+                        </div>
+                        <div class="chart-bar">
+                            <span>Alimentação</span>
+                            <div class="bar">
+                                <div class="bar-fill" id="food-bar" style="width: 0%"></div>
+                            </div>
+                            <span id="food-value">0%</span>
+                        </div>
+                        <div class="chart-bar">
+                            <span>Consumo</span>
+                            <div class="bar">
+                                <div class="bar-fill" id="consumption-bar" style="width: 0%"></div>
+                            </div>
+                            <span id="consumption-value">0%</span>
+                        </div>
+                        <div class="chart-bar">
+                            <span>Resíduos</span>
+                            <div class="bar">
+                                <div class="bar-fill" id="waste-bar" style="width: 0%"></div>
+                            </div>
+                            <span id="waste-value">0%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="comparison">
+                    <h3>Comparação</h3>
+                    <div class="comparison-item">
+                        <span>Sua pegada:</span>
+                        <span id="user-footprint">0 ton CO₂/ano</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span>Média brasileira:</span>
+                        <span>2.5 ton CO₂/ano</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span>Meta sustentável:</span>
+                        <span>1.5 ton CO₂/ano</span>
+                    </div>
+                </div>
+                
+                <div class="recommendations">
+                    <h3>Recomendações</h3>
+                    <div id="recommendations-list">
+                        <!-- Recommendations will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-actions">
+                <button class="btn btn-primary" onclick="saveResults()">
+                    <i class="fas fa-save"></i>
+                    Salvar Resultado
+                </button>
+                <button class="btn btn-secondary" onclick="createActionPlan()">
+                    <i class="fas fa-clipboard-list"></i>
+                    Criar Plano de Ação
+                </button>
+                <a href="dashboard.html" class="btn btn-success">
+                    <i class="fas fa-chart-line"></i>
+                    Ver Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/calculator.js"></script>
+</body>
+</html> 

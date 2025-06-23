@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios - PlanetaReal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/challenges.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-leaf"></i>
+                        <span>PlanetaReal</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="calculator.html">Calculadora</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="challenges.html" class="active">Desafios</a></li>
+                    <li><a href="community.html">Comunidade</a></li>
+                </ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Challenges Section -->
+    <section class="challenges-section">
+        <div class="container">
+            <!-- Challenges Header -->
+            <div class="challenges-header">
+                <div class="header-content">
+                    <h1>Desafios Sustentáveis</h1>
+                    <p>Complete desafios, ganhe pontos e ajude o planeta!</p>
+                    <div class="user-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>1.250 pontos</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-medal"></i>
+                            <span>8 badges</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-fire"></i>
+                            <span>15 dias seguidos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-visual">
+                    <div class="achievement-showcase">
+                        <div class="badge-grid">
+                            <div class="badge earned">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="badge earned">
+                                <i class="fas fa-bicycle"></i>
+                            </div>
+                            <div class="badge earned">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-solar-panel"></i>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="badge">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenge Filters -->
+            <div class="challenge-filters">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="transport">Transporte</button>
+                    <button class="filter-btn" data-filter="food">Alimentação</button>
+                    <button class="filter-btn" data-filter="energy">Energia</button>
+                    <button class="filter-btn" data-filter="waste">Resíduos</button>
+                    <button class="filter-btn" data-filter="consumption">Consumo</button>
+                </div>
+                <div class="filter-group">
+                    <button class="filter-btn" data-difficulty="easy">Fácil</button>
+                    <button class="filter-btn" data-difficulty="medium">Médio</button>
+                    <button class="filter-btn" data-difficulty="hard">Difícil</button>
+                </div>
+            </div>
+
+            <!-- Active Challenges -->
+            <div class="challenges-section-group">
+                <h2><i class="fas fa-fire"></i> Desafios Ativos</h2>
+                <div class="challenges-grid active-challenges">
+                    <div class="challenge-card active" data-category="transport" data-difficulty="medium">
+                        <div class="challenge-header">
+                            <div class="challenge-icon">
+                                <i class="fas fa-bicycle"></i>
+                            </div>
+                            <div class="challenge-status active">
+                                <span>Em andamento</span>
+                            </div>
+                        </div>
+                        <div class="challenge-content">
+                            <h3>Semana Sem Carro</h3>
+                            <p>Use apenas transporte público, bicicleta ou caminhe por 7 dias consecutivos.</p>
+                            <div class="challenge-progress">
+                                <div class="progress-info">
+                                    <span>Progresso: 3/7 dias</span>
+                                    <span>43%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 43%"></div>
+                                </div>
+                            </div>
+                            <div class="challenge-rewards">
+                                <div class="reward">
+                                    <i class="fas fa-star"></i>
+                                    <span>+100 pontos</span>
+                                </div>
+                                <div class="reward">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Badge "Ciclista Verde"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary" onclick="updateProgress(1)">
+                                <i class="fas fa-check"></i>
+                                Marcar como feito
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewDetails(1)">
+                                <i class="fas fa-info-circle"></i>
+                                Detalhes
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card active" data-category="food" data-difficulty="easy">
+                        <div class="challenge-header">
+                            <div class="challenge-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="challenge-status active">
+                                <span>Em andamento</span>
+                            </div>
+                        </div>
+                        <div class="challenge-content">
+                            <h3>Reduzir Desperdício</h3>
+                            <p>Diminua o desperdício de comida em 50% esta semana.</p>
+                            <div class="challenge-progress">
+                                <div class="progress-info">
+                                    <span>Progresso: 60%</span>
+                                    <span>60%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="challenge-rewards">
+                                <div class="reward">
+                                    <i class="fas fa-star"></i>
+                                    <span>+75 pontos</span>
+                                </div>
+                                <div class="reward">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Badge "Anti-Desperdício"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary" onclick="updateProgress(2)">
+                                <i class="fas fa-check"></i>
+                                Marcar como feito
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewDetails(2)">
+                                <i class="fas fa-info-circle"></i>
+                                Detalhes
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card active" data-category="energy" data-difficulty="easy">
+                        <div class="challenge-header">
+                            <div class="challenge-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="challenge-status active">
+                                <span>Em andamento</span>
+                            </div>
+                        </div>
+                        <div class="challenge-content">
+                            <h3>Eficiência Energética</h3>
+                            <p>Troque 5 lâmpadas incandescentes por LED.</p>
+                            <div class="challenge-progress">
+                                <div class="progress-info">
+                                    <span>Progresso: 2/5 lâmpadas</span>
+                                    <span>40%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            <div class="challenge-rewards">
+                                <div class="reward">
+                                    <i class="fas fa-star"></i>
+                                    <span>+50 pontos</span>
+                                </div>
+                                <div class="reward">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Badge "Eficiência"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-primary" onclick="updateProgress(3)">
+                                <i class="fas fa-check"></i>
+                                Marcar como feito
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewDetails(3)">
+                                <i class="fas fa-info-circle"></i>
+                                Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Available Challenges -->
+            <div class="challenges-section-group">
+                <h2><i class="fas fa-list"></i> Desafios Disponíveis</h2>
+                <div class="challenges-grid available-challenges">
+                    <div class="challenge-card available" data-category="food" data-difficulty="medium">
+                        <div class="challenge-header">
+                            <div class="challenge-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="challenge-status available">
+                                <span>Disponível</span>
+                            </div>
+                        </div>
+                        <div class="challenge-content">
+                            <h3>Vegano por 30 dias</h3>
+                            <p>Adote uma dieta vegana por um mês completo.</p>
+                            <div class="challenge-duration">
+                                <i class="fas fa-calendar"></i>
+                                <span>30 dias</span>
+                            </div>
+                            <div class="challenge-rewards">
+                                <div class="reward">
+                                    <i class="fas fa-star"></i>
+                                    <span>+300 pontos</span>
+                                </div>
+                                <div class="reward">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Badge "Vegano"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-success" onclick="acceptChallenge(4)">
+                                <i class="fas fa-play"></i>
+                                Aceitar Desafio
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewDetails(4)">
+                                <i class="fas fa-info-circle"></i>
+                                Detalhes
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card available" data-category="waste" data-difficulty="easy">
+                        <div class="challenge-header">
+                            <div class="challenge-icon">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <div class="challenge-status available">
+                                <span>Disponível</span>
+                            </div>
+                        </div>
+                        <div class="challenge-content">
+                            <h3>Zero Plástico</h3>
+                            <p>Evite usar plásticos descartáveis por 7 dias.</p>
+                            <div class="challenge-duration">
+                                <i class="fas fa-calendar"></i>
+                                <span>7 dias</span>
+                            </div>
+                            <div class="challenge-rewards">
+                                <div class="reward">
+                                    <i class="fas fa-star"></i>
+                                    <span>+80 pontos</span>
+                                </div>
+                                <div class="reward">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Badge "Zero Plástico"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-success" onclick="acceptChallenge(5)">
+                                <i class="fas fa-play"></i>
+                                Aceitar Desafio
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewDetails(5)">
+                                <i class="fas fa-info-circle"></i>
+                                Detalhes
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card available" data-category="consumption" data-difficulty="hard">
+                        <div class="challenge-header">
+                            <div class="challenge-icon">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="challenge-status available">
+                                <span>Disponível</span>
+                            </div>
+                        </div>
+                        <div class="challenge-content">
+                            <h3>Consumo Consciente</h3>
+                            <p>Compre apenas produtos de segunda mão por 30 dias.</p>
+                            <div class="challenge-duration">
+                                <i class="fas fa-calendar"></i>
+                                <span>30 dias</span>
+                            </div>
+                            <div class="challenge-rewards">
+                                <div class="reward">
+                                    <i class="fas fa-star"></i>
+                                    <span>+250 pontos</span>
+                                </div>
+                                <div class="reward">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Badge "Consciente"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-success" onclick="acceptChallenge(6)">
+                                <i class="fas fa-play"></i>
+                                Aceitar Desafio
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewDetails(6)">
+                                <i class="fas fa-info-circle"></i>
+                                Detalhes
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card available" data-category="energy" data-difficulty="medium">
+                        <div class="challenge-header">
+                            <div class="challenge-icon">
+                                <i class="fas fa-solar-panel"></i>
+                            </div>
+                            <div class="challenge-status available">
+                                <span>Disponível</span>
+                            </div>
+                        </div>
+                        <div class="challenge-content">
+                            <h3>Energia Renovável</h3>
+                            <p>Instale painéis solares ou mude para energia renovável.</p>
+                            <div class="challenge-duration">
+                                <i class="fas fa-calendar"></i>
+                                <span>90 dias</span>
+                            </div>
+                            <div class="challenge-rewards">
+                                <div class="reward">
+                                    <i class="fas fa-star"></i>
+                                    <span>+500 pontos</span>
+                                </div>
+                                <div class="reward">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Badge "Renovável"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-success" onclick="acceptChallenge(7)">
+                                <i class="fas fa-play"></i>
+                                Aceitar Desafio
+                            </button>
+                            <button class="btn btn-secondary" onclick="viewDetails(7)">
+                                <i class="fas fa-info-circle"></i>
+                                Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed Challenges -->
+            <div class="challenges-section-group">
+                <h2><i class="fas fa-check-circle"></i> Desafios Concluídos</h2>
+                <div class="challenges-grid completed-challenges">
+                    <div class="challenge-card completed" data-category="food" data-difficulty="easy">
+                        <div class="challenge-header">
+                            <div class="challenge-icon">
+                                <i class="fas fa-carrot"></i>
+                            </div>
+                            <div class="challenge-status completed">
+                                <span>Concluído</span>
+                            </div>
+                        </div>
+                        <div class="challenge-content">
+                            <h3>Alimentação Sustentável</h3>
+                            <p>5 dias sem carne esta semana.</p>
+                            <div class="completion-date">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Concluído em 15/01/2024</span>
+                            </div>
+                            <div class="challenge-rewards">
+                                <div class="reward earned">
+                                    <i class="fas fa-star"></i>
+                                    <span>+75 pontos</span>
+                                </div>
+                                <div class="reward earned">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Badge "Vegetariano"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-secondary" onclick="viewDetails(8)">
+                                <i class="fas fa-info-circle"></i>
+                                Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card completed" data-category="transport" data-difficulty="easy">
+                        <div class="challenge-header">
+                            <div class="challenge-icon">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                            <div class="challenge-status completed">
+                                <span>Concluído</span>
+                            </div>
+                        </div>
+                        <div class="challenge-content">
+                            <h3>10.000 Passos</h3>
+                            <p>Dê 10.000 passos por dia por uma semana.</p>
+                            <div class="completion-date">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Concluído em 10/01/2024</span>
+                            </div>
+                            <div class="challenge-rewards">
+                                <div class="reward earned">
+                                    <i class="fas fa-star"></i>
+                                    <span>+60 pontos</span>
+                                </div>
+                                <div class="reward earned">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Badge "Caminhante"</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="challenge-actions">
+                            <button class="btn btn-secondary" onclick="viewDetails(9)">
+                                <i class="fas fa-info-circle"></i>
+                                Ver Detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Details Modal -->
+    <div id="challenge-modal" class="modal">
+        <div class="modal-content challenge-details">
+            <span class="close">&times;</span>
+            <div class="challenge-detail-header">
+                <div class="challenge-detail-icon">
+                    <i class="fas fa-bicycle"></i>
+                </div>
+                <div class="challenge-detail-info">
+                    <h2 id="modal-challenge-title">Semana Sem Carro</h2>
+                    <div class="challenge-detail-meta">
+                        <span class="difficulty easy">Fácil</span>
+                        <span class="duration">7 dias</span>
+                        <span class="category">Transporte</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="challenge-detail-content">
+                <div class="detail-section">
+                    <h3>Descrição</h3>
+                    <p id="modal-challenge-description">
+                        Use apenas transporte público, bicicleta ou caminhe por 7 dias consecutivos. 
+                        Este desafio ajuda a reduzir significativamente sua pegada de carbono e 
+                        promove hábitos mais saudáveis.
+                    </p>
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Como Participar</h3>
+                    <ul id="modal-challenge-steps">
+                        <li>Planeje suas rotas com antecedência</li>
+                        <li>Use aplicativos de transporte público</li>
+                        <li>Mantenha um registro diário</li>
+                        <li>Marque cada dia como concluído</li>
+                    </ul>
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Impacto Ambiental</h3>
+                    <div class="impact-metrics">
+                        <div class="impact-metric">
+                            <i class="fas fa-cloud"></i>
+                            <span>-0.5 ton CO₂</span>
+                            <small>por semana</small>
+                        </div>
+                        <div class="impact-metric">
+                            <i class="fas fa-tint"></i>
+                            <span>-50L água</span>
+                            <small>economizada</small>
+                        </div>
+                        <div class="impact-metric">
+                            <i class="fas fa-leaf"></i>
+                            <span>+2 árvores</span>
+                            <small>equivalente</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Recompensas</h3>
+                    <div class="rewards-list">
+                        <div class="reward-item">
+                            <i class="fas fa-star"></i>
+                            <span>100 pontos</span>
+                        </div>
+                        <div class="reward-item">
+                            <i class="fas fa-medal"></i>
+                            <span>Badge "Ciclista Verde"</span>
+                        </div>
+                        <div class="reward-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>Ranking na comunidade</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="challenge-detail-actions">
+                <button class="btn btn-primary" id="modal-accept-btn">
+                    <i class="fas fa-play"></i>
+                    Aceitar Desafio
+                </button>
+                <button class="btn btn-secondary" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                    Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/challenges.js"></script>
+</body>
+</html> 
